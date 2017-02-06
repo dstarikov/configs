@@ -52,3 +52,8 @@ let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 set splitbelow
 set splitright
+set hlsearch
+" This fixes vim lag with airline enables
+set ttimeoutlen=1
+" This fixes lag with verilog folding
+let g:verilog_systemverilog_fold = 1
