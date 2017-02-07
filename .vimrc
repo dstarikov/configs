@@ -12,6 +12,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Konfekt/FastFold'
 Plug 'vimtaku/hl_matchit.vim'
 Plug 'jreybert/vimagit'
+Plug 'majutsushi/tagbar'
 call plug#end()
 set background=dark
 set expandtab
@@ -34,6 +35,7 @@ let g:airline_theme='breezy'
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+nmap <F8> :TagbarToggle<CR>
 nnoremap <silent> <F4> :match ExtraWhitespace /\s\+\%#\@<!$/
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
@@ -57,3 +59,4 @@ set hlsearch
 set ttimeoutlen=1
 " This fixes lag with verilog folding
 let g:verilog_systemverilog_fold = 1
+autocmd FileType verilog_systemVerilog * :VerilogErrorFormat iverilog 1
