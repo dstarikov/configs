@@ -17,7 +17,7 @@ call plug#end()
 set background=dark
 set expandtab
 set visualbell
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 if has("autocmd")
 filetype plugin indent on
 endif
@@ -48,9 +48,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_systemverilog_iverilog_exec = '/usr/bin/iverilog'
-let g:syntastic_verilog_systemverilog_checkers = ['iverilog']
 let g:windowswap_map_keys = 0 "prevent default bindings
+let g:syntastic_verilog_checkers = ['iverilog']
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 set splitbelow
 set splitright
