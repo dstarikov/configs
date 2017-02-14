@@ -128,7 +128,7 @@ alias sl=ls
 alias s=ls 
 # Unfortunately no attu access for EE students...
 alias klaatu='ssh klaatu'
-alias rm='rm -i'
+alias rm='rm -I'
 alias cp='cp -i'
 alias h='history | tail -n 3'
 alias tmux='env TERM=xterm-256color tmux-next -2 -f ~/.tmux-next.conf'
