@@ -48,6 +48,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_verilog_checkers = ['iverilog']
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
+set splitbelow
+set splitright
 let g:windowswap_map_keys = 0 "prevent default bindings
 let g:syntastic_verilog_checkers = ['iverilog']
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
@@ -58,4 +63,3 @@ set hlsearch
 set ttimeoutlen=1
 " This fixes lag with verilog folding
 let g:verilog_systemverilog_fold = 1
-autocmd FileType verilog_systemVerilog * :VerilogErrorFormat iverilog 1
