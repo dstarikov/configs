@@ -25,7 +25,13 @@ alias klaatu='ssh klaatu'
 alias rm='rm -I'
 alias cp='cp -i'
 alias h='history | tail -n 3'
-alias tmux='env TERM=xterm-256color tmux -2 -f ~/.tmux-next.conf'
+if [ "$TERM" = "xterm" ]; then
+    export TERM=xterm-256color
+    alias tmux='tmux -2'
+else
+    alias tmux='env TERM=xterm-256color tmux -2 -f ~/.tmux-next.conf'
+fi
 export EDITOR='vim'
 export VISUAL='vim'export 
 QSYS_ROOTDIR="/mnt/320gB/Altera_Linux/quartus/sopc_builder/bin"
+./capsremap.sh
