@@ -1,0 +1,9 @@
+#!/bin/bash
+sudo systemctl disable bumblebeed.service
+yes | sudo pacman -Rdd mesa-libgl lib32-mesa-libgl primus lib32-primus bumblebee
+yes | sudo pacman -S nvidia-libgl lib32-nvidia-libgl
+sudo cp -f /etc/X11/xorg.conf.nvidia /etc/X11/xorg.conf
+sudo cp -f /home/daniel/.xinitrc.nvidia /home/daniel/.xinitrc
+sudo mv -f /usr/share/gdm/greeter/autostart/optimus.inactive /usr/share/gdm/greeter/autostart/optimus.desktop
+sudo mv -f /etc/xdg/autostart/optimus.inactive /etc/xdg/autostart/optimus.desktop
+sudo tee /proc/acpi/bbswitch <<<ON

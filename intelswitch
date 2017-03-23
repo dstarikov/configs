@@ -1,0 +1,13 @@
+#!/bin/bash
+yes | sudo pacman -Rdd nvidia-libgl lib32-nvidia-libgl
+yes | sudo pacman -S mesa-libgl lib32-mesa-libgl primus lib32-primus bumblebee
+
+sudo cp -f /etc/X11/xorg.conf.intel /etc/X11/xorg.conf
+sudo cp -f /home/daniel/.xinitrc.intel /home/daniel/.xinitrc
+
+sudo gpasswd -a daniel bumblebee
+sudo systemctl enable bumblebeed.service
+sudo systemctl start bumblebeed.service
+sudo mv -f /usr/share/gdm/greeter/autostart/optimus.desktop /usr/share/gdm/greeter/autostart/optimus.inactive
+sudo mv -f /etc/xdg/autostart/optimus.desktop /etc/xdg/autostart/optimus.inactive
+sudo tee /proc/acpi/bbswitch <<<OFF
