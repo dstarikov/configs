@@ -32,6 +32,5 @@ else
     alias tmux='env TERM=xterm-256color tmux -2 -f ~/.tmux-next.conf'
 fi
 export EDITOR='vim'
-export VISUAL='vim'export 
+export VISUAL='vim'
 QSYS_ROOTDIR="/mnt/320gB/Altera_Linux/quartus/sopc_builder/bin"
-./capsremap.sh
