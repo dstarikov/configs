@@ -33,8 +33,6 @@ set ttymouse=xterm
 let g:SuperTabDefaultCompletionType = 'context'
 runtime macros/matchit.vim
 
-colors contrastneed
-
 let g:airline_theme='airlineish'
 
 set background=dark
@@ -101,12 +99,14 @@ noremap <C-k> <C-w>k
 set rnu
 ":setlocal spell spelllang=en_us
 
-"Transparent Background in term
-hi NonText ctermbg=none 
-hi Normal guibg=NONE ctermbg=NONE
 
 let g:NERDSpaceDelims = 1
 let g:NERDAltDelims_c = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 let g:tmux_navigator_save_on_switch = 1
+colors contrastneed
+
+"Transparent Background in term
+hi Normal guibg=NONE ctermbg=NONE
+hi NonText ctermbg=none 
