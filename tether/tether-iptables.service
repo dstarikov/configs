@@ -1,0 +1,8 @@
+[Unit]
+Description=tether-iptables
+
+[Service]
+ExecStart=/usr/local/sbin/tether
+
+[Install]
+WantedBy=multi-user.target

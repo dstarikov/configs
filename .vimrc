@@ -2,6 +2,7 @@ execute pathogen#infect()
 call plug#begin('~/.vim/plugged')
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
 Plug 'albertocg/contrastneed-theme'
 Plug 'vim-airline/vim-airline'
@@ -19,7 +20,6 @@ Plug 'vim-scripts/Conque-GDB'
 Plug 'vim-latex/vim-latex'
 Plug 'miyakogi/seiya.vim'
 call plug#end()
-set background=dark
 set expandtab
 set visualbell
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -33,13 +33,16 @@ set ttymouse=xterm
 let g:SuperTabDefaultCompletionType = 'context'
 runtime macros/matchit.vim
 
+let g:airline_theme='airlineish'
+
+set background=dark
+
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 set laststatus=2
-let g:airline_theme='airlineish'
 
 nmap <F8> :TagbarToggle<CR>
 
@@ -95,6 +98,15 @@ noremap <C-k> <C-w>k
 "relative numbering. One of the plugins imrpoves on ths
 set rnu
 ":setlocal spell spelllang=en_us
+
+
+let g:NERDSpaceDelims = 1
+let g:NERDAltDelims_c = 1
+let g:NERDTrimTrailingWhitespace = 1
+
+let g:tmux_navigator_save_on_switch = 1
 colors contrastneed
+
+"Transparent Background in term
 hi Normal guibg=NONE ctermbg=NONE
 hi NonText ctermbg=none 
