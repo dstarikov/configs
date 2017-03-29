@@ -16,10 +16,10 @@ Plug 'jreybert/vimagit'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'vim-scripts/Conque-GDB'
 Plug 'vim-latex/vim-latex'
 Plug 'miyakogi/seiya.vim'
 call plug#end()
+set encoding=utf-8
 set expandtab
 set visualbell
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -32,7 +32,6 @@ set mouse=a
 set ttymouse=xterm
 let g:SuperTabDefaultCompletionType = 'context'
 runtime macros/matchit.vim
-
 let g:airline_theme='airlineish'
 
 set background=dark
@@ -108,5 +107,15 @@ let g:tmux_navigator_save_on_switch = 1
 colors contrastneed
 
 "Transparent Background in term
-hi Normal guibg=NONE ctermbg=NONE
-hi NonText ctermbg=none 
+hi Normal ctermbg=NONE
+hi NonText ctermbg=none
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+" unicode symbols
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = 'Ξ'
+if has("gui_running")
+    set guifont=Source_Code_Pro_Semibold:h10
+endif
