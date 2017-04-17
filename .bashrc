@@ -13,8 +13,6 @@ LS_COLORS='rs=0:di=1;35:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd
 
 export LS_COLORS
 
-# Have Bash on Windows 10 forward GUI apps to my Windows X11 server. I sync my config files using github to klaatu and this conveniently also allows me to forward X11 applications over ssh. 
-#export DISPLAY=localhost:0
 # Fix sl telling me that there's no such command without having a train steam across my screen.
 alias sl=ls
 # and while we're at it fix the case where I accidentally mistype sl.
@@ -29,8 +27,7 @@ if [ "$TERM" = "xterm" ]; then
     export TERM=xterm-256color
     alias tmux='tmux -2'
 else
-    alias tmux='env TERM=xterm-256color tmux -2 -f ~/.tmux-next.conf'
+    alias tmux='env TERM=xterm-256color tmux -2 -f ~/.tmux.conf'
 fi
 export EDITOR='vim'
 export VISUAL='vim'
-QSYS_ROOTDIR="/mnt/320gB/Altera_Linux/quartus/sopc_builder/bin"

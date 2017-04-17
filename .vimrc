@@ -5,7 +5,6 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'vim-scripts/Conque-GDB'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
-Plug 'albertocg/contrastneed-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'paranoida/vim-airlineish/'
@@ -19,6 +18,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'vim-latex/vim-latex'
 Plug 'miyakogi/seiya.vim'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 set encoding=utf-8
 set expandtab
@@ -35,8 +35,6 @@ let g:SuperTabDefaultCompletionType = 'context'
 runtime macros/matchit.vim
 let g:airline_theme='airlineish'
 
-set background=dark
-
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -50,7 +48,6 @@ nmap <F8> :TagbarToggle<CR>
 nnoremap <silent> <F4> :match ExtraWhitespace /\s\+\%#\@<!$/<CR>
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-"colorscheme breezy
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -105,7 +102,8 @@ let g:NERDAltDelims_c = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 let g:tmux_navigator_save_on_switch = 1
-colors contrastneed
+set background=dark
+colorscheme solarized
 
 "Transparent Background in term
 hi Normal ctermbg=NONE
@@ -117,6 +115,3 @@ endif
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
-if has("gui_running")
-    set guifont=Source_Code_Pro_Semibold:h10
-endif
