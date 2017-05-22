@@ -20,6 +20,7 @@ Plug 'vim-latex/vim-latex'
 Plug 'miyakogi/seiya.vim'
 Plug 'altercation/vim-colors-solarized'
 call plug#end()
+
 set encoding=utf-8
 set expandtab
 set visualbell

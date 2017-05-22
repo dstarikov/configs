@@ -31,3 +31,5 @@ else
 fi
 export EDITOR='vim'
 export VISUAL='vim'
+alias startgnome='XDG_SESSION_TYPE=wayland dbus-run-session gnome-session'
+
