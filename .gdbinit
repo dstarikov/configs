@@ -79,19 +79,19 @@ set $SETCOLOR1STLINE = 0
 # set to 0 to remove display of objectivec messages (default is 1)
 set $SHOWOBJECTIVEC = 1
 # set to 0 to remove display of cpu registers (default is 1)
-set $SHOWCPUREGISTERS = 1
+set $SHOWCPUREGISTERS = 0
 # set to 1 to enable display of stack (default is 0)
-set $SHOWSTACK = 1
+set $SHOWSTACK = 0
 # set to 1 to enable display of data window (default is 0)
 set $SHOWDATAWIN = 0
 # set to 0 to disable colored display of changed registers
-set $SHOWREGCHANGES = 1
+set $SHOWREGCHANGES = 0
 # set to 1 so skip command to execute the instruction at the new location
 # by default it EIP/RIP will be modified and update the new context but not execute the instruction
 set $SKIPEXECUTE = 0
 # if $SKIPEXECUTE is 1 configure the type of execution
 # 1 = use stepo (do not get into calls), 0 = use stepi (step into calls)
-set $SKIPSTEP = 1
+set $SKIPSTEP = 0
 # show the ARM opcodes - change to 0 if you don't want such thing (in x/i command)
 set $ARMOPCODES = 1
 # x86 disassembly flavor: 0 for Intel, 1 for AT&T
@@ -114,7 +114,7 @@ set input-radix 0x10
 set height 0
 set width 0
 
-set $SHOW_CONTEXT = 1
+set $SHOW_CONTEXT = 0
 set $SHOW_NEST_INSN = 0
 
 set $CONTEXTSIZE_STACK = 6

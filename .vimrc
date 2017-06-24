@@ -16,7 +16,7 @@ Plug 'jreybert/vimagit'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'vim-latex/vim-latex'
+" Plug 'vim-latex/vim-latex'
 Plug 'miyakogi/seiya.vim'
 Plug 'altercation/vim-colors-solarized'
 call plug#end()
