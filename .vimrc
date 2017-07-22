@@ -16,6 +16,7 @@ Plug 'jreybert/vimagit'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'nanotech/jellybeans.vim'
 " Plug 'vim-latex/vim-latex'
 Plug 'miyakogi/seiya.vim'
 Plug 'altercation/vim-colors-solarized'
@@ -24,7 +25,7 @@ call plug#end()
 set encoding=utf-8
 set expandtab
 set visualbell
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 if has("autocmd")
 filetype plugin indent on
 endif
@@ -58,6 +59,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_verilog_checkers = ['iverilog']
+let g:syntastic_tex_checkers = ['chktex']
+let g:syntastic_tex_chktex_quiet_messages = { "type": "style" }
 
 let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
@@ -90,7 +93,7 @@ noremap <leader>a =ip
 "Ctrl+direction change panes
 noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
+" noremap <C-j> <C-w>j // This is remapped at the bottom thanks to vim-latex
 noremap <C-k> <C-w>k
 
 "relative numbering. One of the plugins imrpoves on ths
@@ -104,7 +107,8 @@ let g:NERDTrimTrailingWhitespace = 1
 
 let g:tmux_navigator_save_on_switch = 1
 set background=dark
-colorscheme solarized
+colorscheme jellybeans
+" colorscheme solarized
 
 "Transparent Background in term
 hi Normal ctermbg=NONE
@@ -116,3 +120,10 @@ endif
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
+
+let g:Tex_CompileRule_pdf = 'pdflatex $*'
+augroup vimrc
+    au!
+    au VimEnter * unmap <C-j>
+    au VimEnter * noremap <C-j> <C-w>j
+augroup END
