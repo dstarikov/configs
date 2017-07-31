@@ -20,6 +20,8 @@ Plug 'nanotech/jellybeans.vim'
 " Plug 'vim-latex/vim-latex'
 Plug 'miyakogi/seiya.vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
 call plug#end()
 
 set encoding=utf-8
@@ -33,9 +35,12 @@ set bs=2
 set ttyfast
 set mouse=a
 set ttymouse=xterm
+set t_vb=
 let g:SuperTabDefaultCompletionType = 'context'
 runtime macros/matchit.vim
 let g:airline_theme='airlineish'
+
+let g:ctrlp_extensions = ['buffertag']
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
@@ -45,6 +50,11 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 set laststatus=2
 
 nmap <F8> :TagbarToggle<CR>
+
+map <c-w>] :vertical stag <c-r>=expand("<cword>")<cr><cr>
+
+nnoremap <silent> <NUL> :CtrlPBufTagAll<CR>
+
 
 "Trailing White space highlighting + removal
 nnoremap <silent> <F4> :match ExtraWhitespace /\s\+\%#\@<!$/<CR>
@@ -127,3 +137,32 @@ augroup vimrc
     au VimEnter * unmap <C-j>
     au VimEnter * noremap <C-j> <C-w>j
 augroup END
+
+" 333 HW3 Hex Tools!
+" Use :Hex to hexdump a file
+" Use :GoHex 0001 010f to go to file position 0x1010f
+command! Hex %!xxd
+
+function! GoToHex(p)
+ let p = substitute(a:p, ' ', '', 'g')
+ if strlen(p) == 5
+  let p = p[1:]
+ endif
+ echo p
+ let pos = str2nr(p, 16)
+ let line_num = pos / 16
+ let line_pos = pos % 16
+ let line_offset = 10 + 2 * (line_pos % 2) + 5 * (line_pos / 2)
+ exe 'goto' (line_num * 68 + line_offset)
+ return ""
+endfunction
+
+command! -nargs=1 GoHex call GoToHex(<f-args>)
+
+" automatically hexdump on .idx files
+autocmd BufReadPost *.idx :silent Hex
+
+" Pressing F8 will take you to corresponding position if it's representable for
+" numbers up to 0xffff! (Assumes it is a position)
+map <F10> :execute "GoHex /" . expand("<cword>") <CR>
+
