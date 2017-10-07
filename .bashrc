@@ -23,6 +23,7 @@ alias klaatu='ssh klaatu'
 alias rm='rm -I'
 alias cp='cp -i'
 alias h='history | tail -n 3'
+alias wget='curl -O'
 if [ "$TERM" = "xterm" ]; then
     export TERM=xterm-256color
     alias tmux='tmux -2'
