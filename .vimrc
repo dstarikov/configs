@@ -2,7 +2,8 @@ execute pathogen#infect()
 call plug#begin('~/.vim/plugged')
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'vim-scripts/Conque-GDB'
+" Slow startup time
+" Plug 'vim-scripts/Conque-GDB'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
@@ -22,7 +23,13 @@ Plug 'miyakogi/seiya.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
+Plug 'fatih/vim-go'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
+
+set exrc
+set secure
 
 set encoding=utf-8
 set expandtab
@@ -107,7 +114,7 @@ noremap <C-h> <C-w>h
 noremap <C-k> <C-w>k
 
 "relative numbering. One of the plugins imrpoves on ths
-set rnu
+set number rnu
 ":setlocal spell spelllang=en_us
 
 
@@ -138,6 +145,12 @@ augroup vimrc
     au VimEnter * noremap <C-j> <C-w>j
 augroup END
 
+" Allow for uppercase w and q
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
 " 333 HW3 Hex Tools!
 " Use :Hex to hexdump a file
 " Use :GoHex 0001 010f to go to file position 0x1010f
@@ -162,7 +175,13 @@ command! -nargs=1 GoHex call GoToHex(<f-args>)
 " automatically hexdump on .idx files
 autocmd BufReadPost *.idx :silent Hex
 
-" Pressing F8 will take you to corresponding position if it's representable for
+" Pressing F10 will take you to corresponding position if it's representable for
 " numbers up to 0xffff! (Assumes it is a position)
-map <F10> :execute "GoHex /" . expand("<cword>") <CR>
+" map <F10> :execute "GoHex /" . expand("<cword>") <CR>
 
+" Automatically open nerdtree if vim is opened without any files
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+map <C-n> :NERDTreeToggle<CR>
+map <C-m> :TagbarOpenAutoClose<CR>

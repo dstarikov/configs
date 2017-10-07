@@ -1,3 +1,6 @@
+# gdb auto-load safe-path to allow qemu-gdb to work
+set auto-load safe-path /
+
 # INSTALL INSTRUCTIONS: save as ~/.gdbinit
 #
 # DESCRIPTION: A user-friendly gdb configuration file, for x86/x86_64 and ARM platforms.
