@@ -41,7 +41,21 @@ endif
 set bs=2
 set ttyfast
 set mouse=a
-set ttymouse=xterm
+
+if !has('nvim')
+set ttymouse=xterm2
+endif
+
+if has('nvim')
+  :tnoremap <C-w> <C-\><C-n><C-w>
+  :tnoremap <C-h> <C-\><C-n><C-w>h
+  :tnoremap <C-j> <C-\><C-n><C-w>j
+  :tnoremap <C-k> <C-\><C-n><C-w>k
+  :tnoremap <C-l> <C-\><C-n><C-w>l
+  autocmd BufWinEnter,WinEnter term://* startinsert
+  autocmd BufLeave term://* stopinsert
+endif
+
 set t_vb=
 let g:SuperTabDefaultCompletionType = 'context'
 runtime macros/matchit.vim
