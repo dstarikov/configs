@@ -144,10 +144,9 @@ let g:tmux_navigator_no_mappings = 1
   nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
   nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
-set background=dark
-" colorscheme meta5
+" set background=dark
+set termguicolors
 colorscheme space-vim-dark
-" colorscheme solarized
 
 "Transparent Background in term
 " hi Normal ctermbg=NONE
