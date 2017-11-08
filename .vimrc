@@ -2,8 +2,6 @@ execute pathogen#infect()
 call plug#begin('~/.vim/plugged')
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-" Slow startup time
-" Plug 'vim-scripts/Conque-GDB'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
@@ -14,18 +12,23 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Konfekt/FastFold'
 Plug 'vimtaku/hl_matchit.vim'
 Plug 'jreybert/vimagit'
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar' 
 Plug 'scrooloose/nerdcommenter'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'nanotech/jellybeans.vim'
-" Plug 'vim-latex/vim-latex'
 Plug 'miyakogi/seiya.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'xolox/vim-easytags'
+Plug 'craigemery/vim-autotag'
+" Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go' 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'christophermca/meta5'
+Plug 'cseelus/vim-colors-lucid'
+Plug 'rking/ag.vim'
+Plug 'NLKNguyen/copy-cut-paste.vim'
 call plug#end()
 
 set exrc
@@ -53,9 +56,7 @@ if has('nvim')
   :tnoremap <C-k> <C-\><C-n><C-w>k
   :tnoremap <C-l> <C-\><C-n><C-w>l
   autocmd BufWinEnter,WinEnter term://* startinsert
-  autocmd BufLeave term://* stopinsert
-endif
-
+  autocmd BufLeave term://* stopinsert endif 
 set t_vb=
 let g:SuperTabDefaultCompletionType = 'context'
 runtime macros/matchit.vim
@@ -75,7 +76,6 @@ nmap <F8> :TagbarToggle<CR>
 map <c-w>] :vertical stag <c-r>=expand("<cword>")<cr><cr>
 
 nnoremap <silent> <NUL> :CtrlPBufTagAll<CR>
-
 
 "Trailing White space highlighting + removal
 nnoremap <silent> <F4> :match ExtraWhitespace /\s\+\%#\@<!$/<CR>
@@ -110,12 +110,9 @@ nnoremap <silent> <S-tab> :bp<cr>
 set ttimeoutlen=1
 " This fixes lag with verilog folding
 let g:verilog_systemverilog_fold = 1
-"clone paragraph with cp
-noremap cp yap<S-}>p
+
 set pastetoggle=<leader>z "Paste mode
-"Playback macro with Q. record with qq and stop with q.
-nnoremap Q @q
-vnoremap Q :norm @q<cr>
+
 "Tab with shift+directio
 nnoremap <S-l> gt
 noremap <S-h> gT
@@ -136,14 +133,17 @@ let g:NERDSpaceDelims = 1
 let g:NERDAltDelims_c = 1
 let g:NERDTrimTrailingWhitespace = 1
 
+" nmap <C-/> <plug>NERDCommenterToggle
+
 let g:tmux_navigator_save_on_switch = 1
 set background=dark
-colorscheme jellybeans
+" colorscheme meta5
+colorscheme space-vim-dark
 " colorscheme solarized
 
 "Transparent Background in term
-hi Normal ctermbg=NONE
-hi NonText ctermbg=none
+" hi Normal ctermbg=NONE
+" hi NonText ctermbg=none
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -164,6 +164,7 @@ augroup END
 :command Wq wq
 :command W w
 :command Q q
+cnoreabbrev ag Ag
 
 " 333 HW3 Hex Tools!
 " Use :Hex to hexdump a file
@@ -189,6 +190,12 @@ command! -nargs=1 GoHex call GoToHex(<f-args>)
 " automatically hexdump on .idx files
 autocmd BufReadPost *.idx :silent Hex
 
+map <C-\> :NERDTreeToggle<CR>
+map <C-A-o> :TagbarToggle<CR>
+" let g:tagbar_autopreview = 1
+let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
+
 " Pressing F10 will take you to corresponding position if it's representable for
 " numbers up to 0xffff! (Assumes it is a position)
 " map <F10> :execute "GoHex /" . expand("<cword>") <CR>
@@ -196,6 +203,8 @@ autocmd BufReadPost *.idx :silent Hex
 " Automatically open nerdtree if vim is opened without any files
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+endif
 
-map <C-n> :NERDTreeToggle<CR>
-map <C-m> :TagbarOpenAutoClose<CR>
+let g:autotagTagsFile=".tags"
+set tags=.tags;
+
