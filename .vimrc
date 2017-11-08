@@ -56,7 +56,9 @@ if has('nvim')
   :tnoremap <C-k> <C-\><C-n><C-w>k
   :tnoremap <C-l> <C-\><C-n><C-w>l
   autocmd BufWinEnter,WinEnter term://* startinsert
-  autocmd BufLeave term://* stopinsert endif 
+  autocmd BufLeave term://* stopinsert 
+endif 
+
 set t_vb=
 let g:SuperTabDefaultCompletionType = 'context'
 runtime macros/matchit.vim
@@ -70,8 +72,6 @@ let g:airline_powerline_fonts = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 set laststatus=2
-
-nmap <F8> :TagbarToggle<CR>
 
 map <c-w>] :vertical stag <c-r>=expand("<cword>")<cr><cr>
 
@@ -133,9 +133,17 @@ let g:NERDSpaceDelims = 1
 let g:NERDAltDelims_c = 1
 let g:NERDTrimTrailingWhitespace = 1
 
-" nmap <C-/> <plug>NERDCommenterToggle
+" Note this is actually ctrl-/.
+map <C-_> <plug>NERDCommenterToggle
 
+" TMUX stuff
 let g:tmux_navigator_save_on_switch = 1
+let g:tmux_navigator_no_mappings = 1
+  nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+  nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+  nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+  nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+
 set background=dark
 " colorscheme meta5
 colorscheme space-vim-dark
@@ -191,10 +199,12 @@ command! -nargs=1 GoHex call GoToHex(<f-args>)
 autocmd BufReadPost *.idx :silent Hex
 
 map <C-\> :NERDTreeToggle<CR>
+
+map <C-S-o> :TagbarOpen fj<CR>
 map <C-A-o> :TagbarToggle<CR>
-" let g:tagbar_autopreview = 1
-let g:tagbar_autoclose = 1
-let g:tagbar_autofocus = 1
+let g:autotagTagsFile=".tags"
+set tags=.tags;
+set colorcolumn=80
 
 " Pressing F10 will take you to corresponding position if it's representable for
 " numbers up to 0xffff! (Assumes it is a position)
@@ -203,8 +213,3 @@ let g:tagbar_autofocus = 1
 " Automatically open nerdtree if vim is opened without any files
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-endif
-
-let g:autotagTagsFile=".tags"
-set tags=.tags;
-
