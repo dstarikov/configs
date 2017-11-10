@@ -1,10 +1,9 @@
 fish_vi_key_bindings
 
-SET fish_color_host:yellow
-SET fish_color_user:purple
-SET fish_pager_color_progress:purple
-
-SET fish_greeting:""
+set fish_color_host yellow
+set fish_color_user purple
+set fish_pager_color_progress purple
+set fish_greeting ""
 
 alias sl='ls --color'
 alias s='ls --color'
