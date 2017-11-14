@@ -199,8 +199,8 @@ autocmd BufReadPost *.idx :silent Hex
 
 map <C-\> :NERDTreeToggle<CR>
 
-map <C-S-o> :TagbarOpen fj<CR>
-map <C-A-o> :TagbarToggle<CR>
+map <c-S-o> :TagbarOpen fj<CR>
+map <c-A-o> :TagbarToggle<CR>
 let g:autotagTagsFile=".tags"
 set tags=.tags;
 set colorcolumn=80
