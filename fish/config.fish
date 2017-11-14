@@ -1,8 +1,9 @@
 fish_vi_key_bindings
 
-export fish_color_host=yellow
-export fish_color_user=purple
-export fish_pager_color_progress=purple
+set fish_color_host yellow
+set fish_color_user purple
+set fish_pager_color_progress purple
+set fish_greeting ""
 
 set fish_greeting ""
 
