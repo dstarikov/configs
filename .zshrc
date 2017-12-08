@@ -61,8 +61,9 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   vi-mode
   git
+  zsh-syntax-highlighting
+  zsh-completions
 )
-
 export KEYTIMEOUT=1
 source $ZSH/oh-my-zsh.sh
 
@@ -95,8 +96,6 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# The following lines were added by compinstall
-#
 alias sl=ls
 alias s=ls 
 alias rm='rm -I'
@@ -104,13 +103,15 @@ alias cp='cp -i'
 alias h='history | tail -n 3'
 alias vim='nvim'
 
+# The following lines were added by compinstall
 
+zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
 zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/home/starikov/.zshrc'
 
