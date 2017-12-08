@@ -1,5 +1,14 @@
 execute pathogen#infect()
 call plug#begin('~/.vim/plugged')
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
@@ -31,6 +40,22 @@ Plug 'rking/ag.vim'
 Plug 'NLKNguyen/copy-cut-paste.vim'
 call plug#end()
 
+" Write automatically when calling make
+set autowrite
+
+" use Ctrl-N and Ctrl-M to jump between errors
+" use \-c to close the quickfix window
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>c :cclose<CR>
+
+" Use \-b and \-r to build and run
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
 set exrc
 set secure
 
@@ -38,6 +63,7 @@ set encoding=utf-8
 set expandtab
 set visualbell
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+
 if has("autocmd")
 filetype plugin indent on
 endif
@@ -172,6 +198,7 @@ augroup END
 :command W w
 :command Q q
 cnoreabbrev ag Ag
+cnoreabbrev agc Ag --cc
 
 " 333 HW3 Hex Tools!
 " Use :Hex to hexdump a file
