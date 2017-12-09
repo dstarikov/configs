@@ -11,7 +11,6 @@ endif
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -28,7 +27,6 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'miyakogi/seiya.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'craigemery/vim-autotag'
-" Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 Plug 'fatih/vim-go' 
 Plug 'scrooloose/nerdtree'
@@ -43,11 +41,23 @@ call plug#end()
 " Write automatically when calling make
 set autowrite
 
+let g:godef_split=3
+
 " use Ctrl-N and Ctrl-M to jump between errors
 " use \-c to close the quickfix window
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>c :cclose<CR>
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_metalinter_enabled = ['golint']
+let g:go_metalinter_autosave_enabled = ['golint']
+let g:go_metalinter_autosave = 1
+let g:deoplete#sources#go#gocode_binary = '/homes/iws/starikov/go/bin/gocode'
+
 
 " Use \-b and \-r to build and run
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
@@ -162,13 +172,6 @@ let g:NERDTrimTrailingWhitespace = 1
 " Note this is actually ctrl-/.
 map <C-_> <plug>NERDCommenterToggle
 
-" TMUX stuff
-let g:tmux_navigator_save_on_switch = 1
-let g:tmux_navigator_no_mappings = 1
-  nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-  nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-  nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-  nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 " set background=dark
 set termguicolors
@@ -186,11 +189,11 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 
 let g:Tex_CompileRule_pdf = 'pdflatex $*'
-augroup vimrc
-    au!
-    au VimEnter * unmap <C-j>
-    au VimEnter * noremap <C-j> <C-w>j
-augroup END
+" augroup vimrc
+    " au!
+    " au VimEnter * unmap <C-j>
+    " au VimEnter * noremap <C-j> <C-w>j
+" augroup END
 
 " Allow for uppercase w and q
 :command WQ wq
