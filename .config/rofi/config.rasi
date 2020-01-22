@@ -1,3 +1,6 @@
 configuration {
-theme: "~/.cache/wal/colors-rofi-dark.rasi";
+  show-icons: true;
+  icon-theme: "Numix";
+  theme: "~/.cache/wal/colors-rofi-dark.rasi";
+  font: "Hack Nerd Font 28";
 }

@@ -5,13 +5,17 @@ URxvt.iso14755_52: false
 URxvt.clipboard.autocopy: true
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt*font: xft:SauceCodePro\ Nerd\ Font:pixelsize=20:antialias=true:hinting=true, \
-xft:SauceCodePro\ Nerd\ Font:pixelsize=20:antialias=true:hinting=true, \
-xft: PowerlineSymbols:pixelsize=16, \
-xft:Unifont:pixelsize:16, \
--*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+URxvt*font: xft:Hack Nerd Font:pixelsize=24:antialias=true:hinting=true
 URxvt.scrollBar: false
 Xcursor.size: 16
 urxvt*transparent: true
-urxvt*shading: 11
+urxvt*shading: 5
 Xft.dpi: 140
+rofi.kb-row-up:                      Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab,Alt+k
+rofi.kb-row-down:                    Down,Control+j,Alt+j
+rofi.kb-accept-entry:                Control+m,Return,KP_Enter
+rofi.terminal:                       mate-terminal
+rofi.kb-remove-to-eol:               Control+Shift+e
+rofi.kb-mode-next:                   Shift+Right,Control+Tab,Control+l,Alt+l
+rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab,Control+h,Alt+h
+rofi.kb-remove-char-back:            BackSpace

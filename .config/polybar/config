@@ -48,8 +48,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Sauce\ Code\ Pro\ Nerd\ Font\ Complete:size=14;1
-font-1 = mplus Nerd Font Mono:size=14;1
+font-0 = SauceCodePro\ Nerd\ Font\ Complete\ Mono:size=18;1
+font-1 = mplus\ Nerd\ Font\ Mono:size=14;1
 font-2 = Anonymice\ Nerd\ Font\ Complete\ Mono:size=14;1
 dpi = 96
 
