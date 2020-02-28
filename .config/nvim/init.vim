@@ -1,5 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'davidhalter/jedi'
+Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -13,7 +15,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'dylanaraps/wal.vim'
 Plug 'rking/ag.vim'
-Plug 'NLKNguyen/copy-cut-paste.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'neomake/neomake'
 call plug#end()
@@ -110,8 +111,8 @@ map <C-_> <plug>NERDCommenterToggle
 
 set background=dark
 " set termguicolors
-" colorscheme space-vim-dark
-colorscheme wal
+colorscheme space-vim-dark
+"colorscheme wal
 set t_Co=256
 
 "Transparent Background in term
@@ -177,6 +178,8 @@ let g:easytags_async = 1
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
+inoremap <expr><C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 
 " call neomake when writing a buffer (no delay).
 call neomake#configure#automake('w')

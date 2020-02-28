@@ -9,6 +9,7 @@ MONITOR=$(polybar -m | tail -1 | sed -e 's/:.*$//g')
 
 source $HOME/.cache/wal/colors.sh
 export color0_alpha="#e7${color0/'#'}"
+export $(dbus-launch)
 
 # Launch top bar
 echo "---" | tee -a /tmp/polybar1.log
