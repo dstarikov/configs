@@ -30,23 +30,23 @@ font pango:monospace 8
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # remap caps lock to escape
-exec_always --no-startup-id xcape -e "Control_L=Escape"
+exec --no-startup-id xcape -e "Control_L=Escape"
 
 # start touch keyboard
-exec_always --no-startup-id onboard &
+exec --no-startup-id onboard &
 
 # Wallpaper
-exec --no-startup-id wal --saturate=0.85 -i $HOME/.config/wallpapers/cyberdesk.jpg
+exec_always --no-startup-id wal --saturate=0.85 -i $HOME/.config/wallpapers/cyberdesk.jpg
 
 # Xresources hack here
 exec --no-startup-id xrdb -merge $HOME/.Xresources
 
 # compton dim/blur inactive windows
-exec --no-startup-id compton --inactive-dim 0.3 --inactive-opacity 0.93
+exec_always --no-startup-id compton --inactive-dim 0.3 --inactive-opacity 0.93
 
 # clipboard sync
-exec_always --no-startup-id /usr/bin/xclipsync
-exec_always --no-startup-id /usr/sbin/autocutsel
+exec --no-startup-id /usr/sbin/autocutsel
+exec --no-startup-id /usr/bin/xclipsync
 
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use 

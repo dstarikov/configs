@@ -51,9 +51,9 @@ menu-0-7-exec = menu-open-8
 menu-1-0 = 
 menu-1-0-exec = menu-open-0
 
-;; Launcher: chromium
+;; Launcher: chrome
 menu-1-1=
-menu-1-1-exec= chromium &
+menu-1-1-exec= google-chrome-stable &
 
 :: Launcher: urxvt
 menu-1-2="    "
@@ -186,14 +186,6 @@ menu-7-1-exec = i3-msg 'kill'
 ;; Power: Back to main menu
 menu-8-0 = 
 menu-8-0-exec = menu-open-0
-
-;; Power: Screen off
-menu-8-1 = 
-menu-8-1-exec = xset dpms force off 
-
-;; Power: Lock
-menu-8-2 = 
-menu-8-2-exec = i3lock
 
 ;; Power: Reboot
 menu-8-3 = 
