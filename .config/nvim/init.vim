@@ -31,6 +31,9 @@ nnoremap <leader>c :cclose<CR>
 " Use deoplete.
 let g:deoplete#enable_at_startup=1
 
+" Use hidden tags file
+let g:gutentags_ctags_tagfile='.tags'
+
 " Use system clipboard
 set clipboard=unnamedplus
 
