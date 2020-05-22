@@ -12,7 +12,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'liuchengxu/space-vim-dark'
+Plug 'liuchengxu/space-vim-theme'
 Plug 'dylanaraps/wal.vim'
 Plug 'rking/ag.vim'
 Plug 'ludovicchabant/vim-gutentags'
@@ -29,7 +29,10 @@ map <C-m> :cprevious<CR>
 nnoremap <leader>c :cclose<CR>
 
 " Use deoplete.
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup=1
+
+" Use system clipboard
+set clipboard=unnamedplus
 
 set encoding=utf-8
 set expandtab
@@ -104,20 +107,22 @@ noremap <C-k> <C-w>k
 
 "relative numbering. One of the plugins imrpoves on ths
 set number rnu
-:setlocal spell spelllang=en_us
+
+" enable spellcheck
+" :setlocal spell spelllang=en_us
 
 " Note this is actually ctrl-/.
 map <C-_> <plug>NERDCommenterToggle
 
-set background=dark
 " set termguicolors
-colorscheme space-vim-dark
-"colorscheme wal
+set background=dark
+colorscheme space_vim_theme
+" colorscheme wal
 set t_Co=256
 
 "Transparent Background in term
-" hi Normal ctermbg=NONE
-" hi NonText ctermbg=none
+hi Normal ctermbg=NONE
+hi NonText ctermbg=none
 
 let g:airline_powerline_fonts = 1
 let g:airline_symbols = {}
