@@ -36,6 +36,9 @@ HISTSIZE=10000
 SAVEHIST=10000
 # End of lines configured by zsh-newuser-install
 
+export KEYTIMEOUT=1
+
+bindkey -v
 # Better searching in command mode
 bindkey '^R' history-incremental-search-backward
 bindkey -M vicmd '^R' history-incremental-search-backward
@@ -52,10 +55,7 @@ bindkey -M vicmd "j" down-line-or-search
 bindkey -M viins "^J" down-line-or-search
 bindkey -M viins "^K" up-line-or-search
 
-export KEYTIMEOUT=1
-
-bindkey -v
-bindkey -M vicmd '^[' undefined-key
+# bindkey -M vicmd '^[' undefined-key
 bindkey -rM viins '^X'
 bindkey -M viins '^X,' _history-complete-newer \
                  '^X/' _history-complete-older \
@@ -86,7 +86,18 @@ prompt pure
 source ~/.cache/wal/colors-tty.sh
 
 alias cat='bat'
+export LS_COLORS="$(vivid generate molokai)"
 alias ls='ls --color=auto'
+alias ll='ls -lah --color=auto'
+alias lsi='lsicons.py'
+alias is='lsi'
+alias ii='lsi'
+alias li='lsi'
+
+# auto start tmux
+# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    # tmux attach -t default || tmux new -s default
+# fi
 
 # Enable conda support
 # [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh

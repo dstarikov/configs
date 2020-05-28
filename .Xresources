@@ -1,16 +1,3 @@
-URxvt.perl-ext-common: default,matcher,resize-font,clipboard
-URxvt.url-launcher: /usr/bin/xdg-open
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-URxvt.clipboard.autocopy: true
-URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt*font: xft:Hack Nerd Font:pixelsize=30:antialias=true:hinting=true,xft:Siji:pixelsize=12
-URxvt.scrollBar: false
-Xcursor.size: 16
-! urxvt*transparent: true
-! urxvt*shading: 20
-Xft.dpi: 192
 rofi.kb-row-up:                      Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab,Alt+k
 rofi.kb-row-down:                    Down,Control+j,Alt+j
 rofi.kb-accept-entry:                Control+m,Return,KP_Enter

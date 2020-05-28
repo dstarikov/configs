@@ -8,6 +8,7 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'paranoida/vim-airlineish/'
+Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar' 
 Plug 'scrooloose/nerdcommenter'
@@ -142,7 +143,13 @@ let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='⚡'
 
 
-map <C-\> :NERDTreeToggle<CR>
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
+noremap <C-\> :NERDTreeToggle<CR>
 let NERDTreeSortOrder=['/$','\.c$','\.h$','\.asm$','\.S$','\.py$']
 let NERDTreeIgnore=['\.pyc$','\.o$',]
 let NERDTreeQuitOnOpen = 1

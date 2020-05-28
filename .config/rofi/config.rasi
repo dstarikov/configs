@@ -1,6 +1,6 @@
 configuration {
   show-icons: true;
   icon-theme: "Numix";
-  theme: "~/.config/rofi/colors-rofi-dark.rasi";
+  theme: "/home/starikov/.config/rofi/colors-rofi-dark.rasi";
   font: "Hack Nerd Font 28";
 }
